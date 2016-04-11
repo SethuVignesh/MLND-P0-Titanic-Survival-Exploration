@@ -102,7 +102,7 @@ predictions = predictions_2(data)
 
 print accuracy_score(outcomes, predictions)
 
-survival_stats(data, outcomes, 'Age', ["Sex == 'male'", "Age < 18","SibSp < 3"])
+
 
 def predictions_3(data):
     """ Model with two features: 
@@ -115,14 +115,14 @@ def predictions_3(data):
         # Remove the 'pass' statement below 
         # and write your prediction conditions here
        # predictions.append(passenger['Sex']=='female' or (passenger['Sex']=='male' and passenger['Age']<10) and (passenger['SibSp']<2))
-         predictions.append((passenger['Sex']=='female' ) or (passenger['Sex']=='male' and passenger['Age']<18  ) )
+         predictions.append( passenger['Sex']=='female' or ((passenger['Sex']=='male' and passenger['Age']<10) and (passenger['SibSp']<2) )  )
         
     
     # Return our predictions
     return pd.Series(predictions)
 
 # Make the predictions
-predictions = predictions_2(data)
+predictions = predictions_3(data)
 
 
 print accuracy_score(outcomes, predictions)
